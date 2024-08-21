@@ -31,7 +31,7 @@ MGOB is available on Docker Hub at [stefanprodan/mgob](https://hub.docker.com/r/
 
 Supported tags:
 
-- `stefanprodan/mgob:latest` latest stable [release](https://github.com/stefanprodan/mgob/releases)
+- `stefanprodan/mgob:latest` latest stable [release](https://github.com/sstreichan/mgob/releases)
 - `stefanprodan/mgob:edge` master branch latest successful [build](https://travis-ci.org/stefanprodan/mgob)
 
 Compatibility matrix:
@@ -57,7 +57,7 @@ docker run -dp 8090:8090 --name mgob \
 
 Kubernetes:
 
-A step by step guide on running MGOB as a StatefulSet with PersistentVolumeClaims can be found [here](https://github.com/stefanprodan/mgob/tree/master/k8s).
+A step by step guide on running MGOB as a StatefulSet with PersistentVolumeClaims can be found [here](https://github.com/sstreichan/mgob/tree/master/k8s).
 
 #### Configure
 

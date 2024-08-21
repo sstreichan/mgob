@@ -32,6 +32,9 @@ type Target struct {
 	Port     int    `yaml:"port"`
 	Username string `yaml:"username"`
 	Params   string `yaml:"params"`
+	CertFile string `yaml:"certFile"`
+	KeyFile  string `yaml:"keyFile"`
+
 }
 
 type Scheduler struct {

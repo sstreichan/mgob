@@ -8,7 +8,7 @@ import (
 	"github.com/codeskyblue/go-sh"
 	"github.com/pkg/errors"
 
-	"github.com/stefanprodan/mgob/pkg/config"
+	"github.com/sstreichan/mgob/pkg/config"
 )
 
 func azureUpload(file string, plan config.Plan) (string, error) {

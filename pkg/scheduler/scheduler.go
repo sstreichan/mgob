@@ -9,11 +9,11 @@ import (
 	"github.com/robfig/cron"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/stefanprodan/mgob/pkg/backup"
-	"github.com/stefanprodan/mgob/pkg/config"
-	"github.com/stefanprodan/mgob/pkg/db"
-	"github.com/stefanprodan/mgob/pkg/metrics"
-	"github.com/stefanprodan/mgob/pkg/notifier"
+	"github.com/sstreichan/mgob/pkg/backup"
+	"github.com/sstreichan/mgob/pkg/config"
+	"github.com/sstreichan/mgob/pkg/db"
+	"github.com/sstreichan/mgob/pkg/metrics"
+	"github.com/sstreichan/mgob/pkg/notifier"
 )
 
 type Scheduler struct {

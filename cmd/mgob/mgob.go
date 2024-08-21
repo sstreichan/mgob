@@ -1,20 +1,21 @@
 package main
 
 import (
-	"github.com/kelseyhightower/envconfig"
 	"os"
 	"os/signal"
 	"path"
 	"syscall"
 
+	"github.com/kelseyhightower/envconfig"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 
-	"github.com/stefanprodan/mgob/pkg/api"
-	"github.com/stefanprodan/mgob/pkg/backup"
-	"github.com/stefanprodan/mgob/pkg/config"
-	"github.com/stefanprodan/mgob/pkg/db"
-	"github.com/stefanprodan/mgob/pkg/scheduler"
+	"github.com/sstreichan/mgob/pkg/api"
+	"github.com/sstreichan/mgob/pkg/backup"
+	"github.com/sstreichan/mgob/pkg/config"
+	"github.com/sstreichan/mgob/pkg/db"
+	"github.com/sstreichan/mgob/pkg/scheduler"
 )
 
 var (

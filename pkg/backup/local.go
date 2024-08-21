@@ -2,8 +2,8 @@ package backup
 
 import (
 	"fmt"
-	"os"
 	"io/ioutil"
+	"os"
 	"strings"
 	"time"
 
@@ -11,7 +11,7 @@ import (
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/stefanprodan/mgob/pkg/config"
+	"github.com/sstreichan/mgob/pkg/config"
 )
 
 func dump(plan config.Plan, tmpPath string, ts time.Time) (string, string, error) {
@@ -40,7 +40,14 @@ func dump(plan config.Plan, tmpPath string, ts time.Time) (string, string, error
 	if plan.Target.Params != "" {
 		dump += fmt.Sprintf("%v", plan.Target.Params)
 	}
+	
+	if plan.Target.CertFile != "" {
+		dump += fmt.Sprintf("--sslCAFile=%v ", plan.Target.CertFile)
+	}
 
+	if plan.Target.KeyFile != "" {
+		dump += fmt.Sprintf("--sslPEMKeyFile=%v ", plan.Target.KeyFile)
+	}
 	// TODO: mask password
 	log.Debugf("dump cmd: %v", dump)
 	output, err := sh.Command("/bin/sh", "-c", dump).SetTimeout(time.Duration(plan.Scheduler.Timeout) * time.Minute).CombinedOutput()

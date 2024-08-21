@@ -9,7 +9,7 @@ version: 1.2.2
 appVersion: "1.5"
 
 sources:
-- https://github.com/stefanprodan/mgob
+- https://github.com/sstreichan/mgob
 
 maintainers:
 - name: endrec

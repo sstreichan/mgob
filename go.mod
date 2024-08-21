@@ -1,4 +1,4 @@
-module github.com/stefanprodan/mgob
+module github.com/sstreichan/mgob
 
 go 1.13
 

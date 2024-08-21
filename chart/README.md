@@ -13,7 +13,7 @@ Runs scheduled backups with retention, S3 & SFTP upload, notifications, instrume
 
 ## Source Code
 
-* <https://github.com/stefanprodan/mgob>
+* <https://github.com/sstreichan/mgob>
 
 ## Values
 
