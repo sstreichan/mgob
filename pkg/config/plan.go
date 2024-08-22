@@ -1,7 +1,6 @@
 package config
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -25,16 +24,16 @@ type Plan struct {
 }
 
 type Target struct {
-	Database string `yaml:"database"`
-	Host     string `yaml:"host"`
-	Uri      string `yaml:"uri"`
-	Password string `yaml:"password"`
-	Port     int    `yaml:"port"`
-	Username string `yaml:"username"`
-	Params   string `yaml:"params"`
-	CertFile string `yaml:"certFile"`
-	KeyFile  string `yaml:"keyFile"`
-
+	Database    string `yaml:"database"`
+	Host        string `yaml:"host"`
+	Uri         string `yaml:"uri"`
+	Password    string `yaml:"password"`
+	Port        int    `yaml:"port"`
+	Username    string `yaml:"username"`
+	Params      string `yaml:"params"`
+	CertFile    string `yaml:"certFile"`
+	KeyFile     string `yaml:"keyFile"`
+	KeyFilePass string `yaml:"keyFilePass"`
 }
 
 type Scheduler struct {
@@ -123,7 +122,7 @@ func LoadPlan(dir string, name string) (Plan, error) {
 		return plan, errors.Errorf("Plan %v not found", name)
 	}
 
-	data, err := ioutil.ReadFile(planPath)
+	data, err := os.ReadFile(planPath)
 	if err != nil {
 		return plan, errors.Wrapf(err, "Reading %v failed", planPath)
 	}
@@ -154,7 +153,7 @@ func LoadPlans(dir string) ([]Plan, error) {
 
 	for _, path := range files {
 		var plan Plan
-		data, err := ioutil.ReadFile(path)
+		data, err := os.ReadFile(path)
 		if err != nil {
 			return nil, errors.Wrapf(err, "Reading %v failed", path)
 		}

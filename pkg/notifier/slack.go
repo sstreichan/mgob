@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/pkg/errors"
@@ -74,7 +74,7 @@ func sendSlackNotification(subject string, body string, warn bool, cfg *config.S
 		defer res.Body.Close()
 		statusCode := res.StatusCode
 		if statusCode != 200 {
-			body, _ := ioutil.ReadAll(res.Body)
+			body, _ := io.ReadAll(res.Body)
 			return errors.Errorf("Sending data to slack failed %v", string(body))
 		}
 	}

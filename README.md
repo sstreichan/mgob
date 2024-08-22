@@ -1,5 +1,7 @@
 # mgob
 
+forked from stefanprodan/mgob
+
 This project is no longer maintained.
 I lost interest in MongoDB some years ago and I can't drive an OSS project forward in my spare time without being passioned about it.
 

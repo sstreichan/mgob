@@ -4,6 +4,8 @@ target:
   database: "syros"
   username: ""
   password: ""
+  CertFile: ""
+  KeyFile: ""
 scheduler:
   cron: "*/3 * * * *"
   retention: 5

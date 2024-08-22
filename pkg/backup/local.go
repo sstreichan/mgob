@@ -2,7 +2,6 @@ package backup
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 	"time"
@@ -48,6 +47,11 @@ func dump(plan config.Plan, tmpPath string, ts time.Time) (string, string, error
 	if plan.Target.KeyFile != "" {
 		dump += fmt.Sprintf("--sslPEMKeyFile=%v ", plan.Target.KeyFile)
 	}
+
+	if plan.Target.KeyFilePass != "" {
+		dump += fmt.Sprintf("--sslPEMKeyPassword=%v ", plan.Target.KeyFilePass)
+	}
+
 	// TODO: mask password
 	log.Debugf("dump cmd: %v", dump)
 	output, err := sh.Command("/bin/sh", "-c", dump).SetTimeout(time.Duration(plan.Scheduler.Timeout) * time.Minute).CombinedOutput()
@@ -67,7 +71,7 @@ func dump(plan config.Plan, tmpPath string, ts time.Time) (string, string, error
 
 func logToFile(file string, data []byte) error {
 	if len(data) > 0 {
-		err := ioutil.WriteFile(file, data, 0644)
+		err := os.WriteFile(file, data, 0644)
 		if err != nil {
 			return errors.Wrapf(err, "writing log %v failed", file)
 		}
